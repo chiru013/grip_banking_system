@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Send Money</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/home">BOI</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link " href="/">Home</a>
+      </li><li class="nav-item ">
+        <a class="nav-link active" href="/home">Transfer Money</a>
+      </li></li><li class="nav-item">
+        <a class="nav-link" href="/transactions">Transaction History</a>
+      </li>
+    </ul>
+    <form method="get" action="/search" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
+      </form>
+  </div>
+</nav>
+
+      {% for message in messages  %}
+      <div id="mydiv" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message : </strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  {% endfor %}
+
+  <div class="container ">
+
+    <div class="shadow row justify-content-md-center  ">
+        <div class="col-lg-5 shadow p-0 mx-auto my-5 border rounded "  style="padding:0; ">
+
+            <form action="/handletransfer" method="post">
+              {% csrf_token %}
+               <input type="hidden" id="name" name="name" value="{{customs.cust_name}}">
+               <input type="hidden" id="idP" name="idP" value="{{customs.id}}">
+
+              <div class="alert alert-info text-center m-0" role="alert">
+                <h1 class="">Transfer Money</h1>
+              </div>
+
+              <div class="text-center mt-3">
+                <h4>Account holder : <span class="badge badge-warning"><h5><b> {{customs.cust_name}} </b></h5></span></h4>
+              </div>
+
+                <div class="form-group mt-3" style="padding-left: 20px; padding-right: 20px;">
+                    <label for="exampleFormControlSelect1">Select user to send money</label>
+                        <select name="sendTo" class="form-control" id="exampleFormControlSelect1">
+                          <option value="-1">Select User</option>
+                          {% for custom in allCust %}
+                          <option value="{{custom.cust_name}}">{{custom.cust_name}}</option>
+                          {% endfor %}
+                        </select>
+                </div>
+
+                <label class="sr-only " for="inlineFormInputGroupUsername2">Amount</label>
+                    <div class="input-group mb-2 mr-sm-2 " style="padding-left: 20px; padding-right: 20px;">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">Send</div>
+                      </div>
+
+                      <input required type="text" name="amount" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Enter Amount">
+                    </div>
+
+
+                <button type="submit" class=" float-right btn btn-info ml-auto mt-2 mb-4" style="margin-right: 20px;" >Send</button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
