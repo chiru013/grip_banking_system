@@ -34,6 +34,9 @@ def handleTransfer(request):
         messages.error(request, 'Please select a user to send money')
         return redirect('sendmoney' , id=int(idP))
     amount = request.POST.get('amount')
+    if int(amount) < 0:
+        messages.error(request, "Amount can't be negative")
+        return redirect('sendmoney', id=int(idP))
     person = Customer.objects.get(id=idP)
     person2 = Customer.objects.get(cust_name= sendTo)
 
