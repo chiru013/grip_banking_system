@@ -6,11 +6,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
+
+  .backgroud{
+    background-color: whitesmoke;
+    width:auto;
+    height:100px;
+    margin: auto;
+  }
+
   /* Make the image fully responsive */
   .carousel-inner img {
     width: 100%;
@@ -29,12 +36,182 @@
     min-height: 500px;
 }
 
+    @import "https://fonts.googleapis.com/css?family=Open+Sans:600,700";
+  
+  * {
+    font-family: "Open Sans", sans-serif !important;
+  }
+  
+  .rwd-table {
+    margin: auto;
+    min-width: 300px;
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .rwd-table tr:first-child {
+    border-top: none;
+    background: #428bca;
+    color: #fff;
+  }
+  
+  .rwd-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+  }
+  
+  .rwd-table tr:nth-child(odd):not(:first-child) {
+    background-color: #ebf3f9;
+  }
+  
+  .rwd-table th {
+    display: none;
+  }
+  
+  .rwd-table td {
+    display: block;
+  }
+  
+  .rwd-table td:first-child {
+    margin-top: 0.5em;
+  }
+  
+  .rwd-table td:last-child {
+    margin-bottom: 0.5em;
+  }
+  
+  .rwd-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+  
+  .rwd-table th,
+  .rwd-table td {
+    text-align: left;
+  }
+  
+  .rwd-table {
+    color: #333;
+    border-radius: 0.4em;
+    overflow: hidden;
+  }
+  
+  .rwd-table tr {
+    border-color: #bfbfbf;
+  }
+  
+  .rwd-table th,
+  .rwd-table td {
+    padding: 0.5em 1em;
+  }
+  @media screen and (max-width: 601px) {
+    .rwd-table tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .rwd-table tr:hover:not(:first-child) {
+      background-color: #d8e7f3;
+    }
+    .rwd-table td:before {
+      display: none;
+    }
+    .rwd-table th,
+    .rwd-table td {
+      display: table-cell;
+      padding: 0.25em 0.5em;
+    }
+    .rwd-table th:first-child,
+    .rwd-table td:first-child {
+      padding-left: 0;
+    }
+    .rwd-table th:last-child,
+    .rwd-table td:last-child {
+      padding-right: 0;
+    }
+    .rwd-table th,
+    .rwd-table td {
+      padding: 1em !important;
+    }
+  }
+  
+  /* THE END OF THE IMPORTANT STUFF */
+  
+  /* Basic Styling */
+  body {
+    background: #adc9e2;
+
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.4em;
+    color: #f2f2f2;
+  }
+  .container {
+    display: block;
+    text-align: center;
+  }
+  h3 {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
+    color: #cecece;
+  }
+  h3:before {
+    content: "\25C0";
+    position: absolute;
+    left: -50px;
+    -webkit-animation: leftRight 2s linear infinite;
+    animation: leftRight 2s linear infinite;
+  }
+  h3:after {
+    content: "\25b6";
+    position: absolute;
+    right: -50px;
+    -webkit-animation: leftRight 2s linear infinite reverse;
+    animation: leftRight 2s linear infinite reverse;
+  }
+  @-webkit-keyframes leftRight {
+    0% {
+      -webkit-transform: translateX(0);
+    }
+    25% {
+      -webkit-transform: translateX(-10px);
+    }
+    75% {
+      -webkit-transform: translateX(10px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+    }
+  }
+  @keyframes leftRight {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    75% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
   </style>
 </head>
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/home">BOI</a>
+  <a class="navbar-brand" href="/">BOI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -56,48 +233,22 @@
   </div>
 </nav>
 
-<div id="demo" class="carousel slide" data-ride="carousel">
+<div id="demo" class="carousel slide container-fluid" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
   </ul>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="{% static 'images/bankqueue.jpg' %}" alt="Los Angeles" width="1100" height="500">
-      <div class="carousel-caption text-dark">
-        <h3>Los Angeles</h3>
-        <p>We had such a great time in LA!</p>
+      <div class="carousel-caption text-dark backgroud">
+        <h3 class="text-dark"><b>Bank Of India</b></h3>
+        <p class="text-dark"><b>Tired standing in a Queue...Try our App</b></p>
       </div>
     </div>
-    <div class="carousel-item">
-      <img src="{% static 'images/sendrec.jpg' %}" alt="Chicago" width="1100" height="500">
-      <div class="carousel-caption text-dark">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'images/hist1.jpg' %}" alt="New York" width="1100" height="500">
-      <div class="carousel-caption text-dark">
-        <h3>New York</h3>
-        <p>We love the Big Apple!</p>
-      </div>
-    </div>
+
+  
+
   </div>
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
 </div>
-
 </body>
-
-
-
-
-
-
 </html>

@@ -10,20 +10,215 @@
 
     <title>Send Money</title>
   </head>
+
+  <style>
+    @import "https://fonts.googleapis.com/css?family=Open+Sans:600,700";
+  
+  * {
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .rwd-table {
+    margin: auto;
+    min-width: 300px;
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .rwd-table tr:first-child {
+    border-top: none;
+    background: #428bca;
+    color: #fff;
+  }
+  
+  .rwd-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+  }
+  
+  .rwd-table tr:nth-child(odd):not(:first-child) {
+    background-color: #ebf3f9;
+  }
+  
+  .rwd-table th {
+    display: none;
+  }
+  
+  .rwd-table td {
+    display: block;
+  }
+  
+  .rwd-table td:first-child {
+    margin-top: 0.5em;
+  }
+  
+  .rwd-table td:last-child {
+    margin-bottom: 0.5em;
+  }
+  
+  .rwd-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+  
+  .rwd-table th,
+  .rwd-table td {
+    text-align: left;
+  }
+  
+  .rwd-table {
+    color: #333;
+    border-radius: 0.4em;
+    overflow: hidden;
+  }
+  
+  .rwd-table tr {
+    border-color: #bfbfbf;
+  }
+  
+  .rwd-table th,
+  .rwd-table td {
+    padding: 0.5em 1em;
+  }
+  @media screen and (max-width: 601px) {
+    .rwd-table tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .rwd-table tr:hover:not(:first-child) {
+      background-color: #d8e7f3;
+    }
+    .rwd-table td:before {
+      display: none;
+    }
+    .rwd-table th,
+    .rwd-table td {
+      display: table-cell;
+      padding: 0.25em 0.5em;
+    }
+    .rwd-table th:first-child,
+    .rwd-table td:first-child {
+      padding-left: 0;
+    }
+    .rwd-table th:last-child,
+    .rwd-table td:last-child {
+      padding-right: 0;
+    }
+    .rwd-table th,
+    .rwd-table td {
+      padding: 1em !important;
+    }
+  }
+  
+  /* THE END OF THE IMPORTANT STUFF */
+  
+  /* Basic Styling */
+  body {
+    background: #4b79a1;
+    background: -webkit-linear-gradient(to left, #4b79a1, #283e51);
+    background: linear-gradient(to left, #4b79a1, #283e51);
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.4em;
+    color: #f2f2f2;
+  }
+  .container {
+    display: block;
+    text-align: center;
+  }
+  h3 {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
+    color: #cecece;
+  }
+  h3:before {
+    content: "\25C0";
+    position: absolute;
+    left: -50px;
+    -webkit-animation: leftRight 2s linear infinite;
+    animation: leftRight 2s linear infinite;
+  }
+  h3:after {
+    content: "\25b6";
+    position: absolute;
+    right: -50px;
+    -webkit-animation: leftRight 2s linear infinite reverse;
+    animation: leftRight 2s linear infinite reverse;
+  }
+  @-webkit-keyframes leftRight {
+    0% {
+      -webkit-transform: translateX(0);
+    }
+    25% {
+      -webkit-transform: translateX(-10px);
+    }
+    75% {
+      -webkit-transform: translateX(10px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+    }
+  }
+  @keyframes leftRight {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    75% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /*
+      Don't look at this last part. It's unnecessary. I was just playing with pixel gradients... Don't judge.
+  */
+  /*
+  @media screen and (max-width: 601px) {
+    .rwd-table tr {
+      background-image: -webkit-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+      background-image: -moz-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+      background-image: -o-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+      background-image: -ms-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+      background-image: linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+    }
+    .rwd-table tr:nth-child(odd) {
+      background-image: -webkit-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+      background-image: -moz-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+      background-image: -o-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+      background-image: -ms-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+      background-image: linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+    }
+  }*/
+  
+  </style>
+
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/home">BOI</a>
+  <a class="navbar-brand" href="/">BOI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link " href="/">Home</a>
       </li><li class="nav-item ">
-        <a class="nav-link active" href="/home">Transfer Money</a>
+        <a class="nav-link " href="/home">Transfer Money</a>
       </li></li><li class="nav-item">
         <a class="nav-link" href="/transactions">Transaction History</a>
       </li>
@@ -55,19 +250,19 @@
                <input type="hidden" id="idP" name="idP" value="{{customs.id}}">
 
               <div class="alert alert-info text-center m-0" role="alert">
-                <h1 class="">Transfer Money</h1>
+                <h1 class="text-dark">Transfer Money</h1>
               </div>
 
               <div class="text-center mt-3">
-                <h4>Account holder : <span class="badge badge-warning"><h5><b> {{customs.cust_name}} </b></h5></span></h4>
+                <h4><span class="text-light">Account holder : </span><span class="badge badge-warning"><h5><b> {{customs.cust_name}} </b></h5></span></h4>
               </div>
 
-                <div class="form-group mt-3" style="padding-left: 20px; padding-right: 20px;">
+                <div class="text-light form-group mt-3" style="padding-left: 20px; padding-right: 20px;">
                     <label for="exampleFormControlSelect1">Select user to send money</label>
                         <select name="sendTo" class="form-control" id="exampleFormControlSelect1">
                           <option value="-1">Select User</option>
                           {% for custom in allCust %}
-                          <option value="{{custom.cust_name}}">{{custom.cust_name}}</option>
+                          <option value="{{custom.cust_name}}">{{custom.cust_name}} (Balance: {{custom.balance}}) </option>
                           {% endfor %}
                         </select>
                 </div>
